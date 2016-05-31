@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Menu Demo</title>
+    </head>
+    <style>
+        .menu__sub { overflow: hidden; }
+        .menu__sub--transitioning { transition: height 250ms; }
+    </style>
+    <body>
+        <ul id="menu" class="menu">
+            <li class="menu__item">
+                <a href="#" class="menu__link">
+                    <span class="menu__text">Sub menu 1</span>
+                </a>
+            </li>
+
+            <li class="menu__item menu__item--parent">
+                <a href="#" class="menu__link">
+                    <span class="menu__text">Sub menu 2</span>
+                    <button type="button" class="menu__toggler" aria-expanded="false" aria-controls="submenu-1">toggle sub menu</button>
+                </a>
+
+                <div class="menu__sub" aria-hidden="true" id="submenu-1">
+                    <ul class="menu">
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">
+                                <span class="menu__text">Sub menu 2.1</span>
+                            </a>
+                        </li>
+                        <li class="menu__item menu__item--parent">
+                            <a href="#" class="menu__link">
+                                <span class="menu__text">Sub menu 2.2</span>
+                                <button type="button" class="menu__toggler" aria-expanded="false" aria-controls="submenu-2">toggle sub menu</button>
+                            </a>
+
+                            <div class="menu__sub" aria-hidden="true" id="submenu-2">
+                                <ul class="menu">
+                                    <li class="menu__item">
+                                        <a href="#" class="menu__link">
+                                            <span class="menu__text">Sub menu 2.2.1</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="menu__item">
+                                        <a href="#" class="menu__link">
+                                            <span class="menu__text">Sub menu 2.2.2</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="menu__item">
+                            <a href="#" class="menu__link">
+                                <span class="menu__text">Sub menu 2.3</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="menu__item">
+                <a href="#" class="menu__link">
+                    <span class="menu__text">Sub menu 3</span>
+                </a>
+            </li>
+        </ul>
+
+        <script src="dist/menu.js"></script>
+        <script>
+            new Menu(document.getElementById('menu'));
+        </script>
+    </body>
+</html>

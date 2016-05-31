@@ -1,0 +1,19 @@
+{
+  "name": "menu",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "browserify index.js -s Menu -o dist/menu.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.creuna.se/projects/GBGFE/repos/menu"
+  },
+  "devDependencies": {
+    "browserify": "13.0.1"
+  },
+  "dependencies": {
+    "classlist-polyfill": "1.0.3",
+    "lodash": "4.13.1"
+  }
+}

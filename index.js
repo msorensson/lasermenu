@@ -15,7 +15,8 @@ var Menu = function(el, opts) {
         activeTrailSelector: '.menu__item--active-trail',
         openClassName: 'menu__item--open',
         transitioningClassName: 'menu__sub--transitioning',
-        init: true
+        init: true,
+        useTransition: supportsTransitions
     };
 
     assign(self.opts, opts);
@@ -93,7 +94,7 @@ Menu.prototype = {
         subMenu.style.display = 'block';
         originalHeight= subMenu.offsetHeight;
 
-        if (supportsTransitions && !bypassTransition) {
+        if (self.opts.useTransition && !bypassTransition) {
             subMenu.style.height = '0';
             subMenu.offsetHeight; // Triggers repaint.
             parent.classList.add(self.opts.openClassName);
@@ -126,7 +127,7 @@ Menu.prototype = {
         var toggler = parent.querySelector(self.opts.togglerSelector);
         var originalHeight = subMenu.offsetHeight;
 
-        if (supportsTransitions && !bypassTransition) {
+        if (self.opts.useTransition && !bypassTransition) {
             subMenu.style.height = originalHeight + 'px';
             subMenu.offsetHeight; // Triggers repaint.
 
